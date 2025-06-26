@@ -7,7 +7,9 @@
   <title>Ekrem Hâlâ İçeride Mi?</title>
   <link rel="icon" href="favicon.ico" />
   <style>
-    body {
+    
+   body {
+    
   background-color: #111;
   background-image: 
     url('assets/eko1.jpg'),
@@ -17,10 +19,31 @@
   background-position: center center, top left, bottom right;
   background-size: 40% 40%, 30% 30%, 30% 30%;
   background-blend-mode: lighten;
-  opacity: 0.15;
+  color: #eee;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 0;
 }
 
-   body {
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    url('assets/eko1.jpg'),
+    url('assets/eko2.jpg'),
+    url('assets/eko3.jpg');
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: center center, top left, bottom right;
+  background-size: 40% 40%, 30% 30%, 30% 30%;
+  background-blend-mode: lighten;
+  opacity: 0.15;
+  z-index: -1;
+  pointer-events: none;
+}
+
   background: #111;
   color: #eee;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -98,8 +121,8 @@ h1 {
 
   </style>
 </head>
-<body>
 
+   
   <h1>Ekrem Hâlâ İçeride Mi?</h1>
   <div id="cevap">Yükleniyor...</div>
 
