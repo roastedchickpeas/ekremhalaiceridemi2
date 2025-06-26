@@ -10,46 +10,35 @@
     
    body {
     
-  background-color: #111;
-  background-image: 
-    url('assets/eko1.jpg'),
-    url('assets/eko2.jpg'),
-    url('assets/eko3.jpg');
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-position: center center, top left, bottom right;
-  background-size: 40% 40%, 30% 30%, 30% 30%;
-  background-blend-mode: lighten;
-  color: #eee;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-align: center;
-  padding: 40px 20px;
-  position: relative;
-  z-index: 0;
+      background-color: #111;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      color: #eee;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 40px 20px;
 }
+ <script>
+   const arkaPlanlar = [
+    'assets/eko1.jpg',
+    'assets/eko2.jpg',
+    'assets/eko3.jpg',
+  ];
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: 
-    url('assets/eko1.jpg'),
-    url('assets/eko2.jpg'),
-    url('assets/eko3.jpg');
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-position: center center, top left, bottom right;
-  background-size: 40% 40%, 30% 30%, 30% 30%;
-  background-blend-mode: lighten;
-  opacity: 0.15;
-  z-index: -1;
-  pointer-events: none;
-}
+  function rastgeleArkaPlan() {
+    const secilen = arkaPlanlar[Math.floor(Math.random() * arkaPlanlar.length)];
+    document.body.style.backgroundImage = `url('${secilen}')`;
+    document.body.style.backgroundRepeat = 'no-repeat';
+    document.body.style.backgroundPosition = 'center center';
+    document.body.style.backgroundSize = 'contain';
+    document.body.style.backgroundBlendMode = 'lighten';
+    document.body.style.opacity = '0.15';
+  }
 
-  background: #111;
-  color: #eee;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-align: center;
-  padding: 40px 20px;
-}
+  window.onload = rastgeleArkaPlan;
+ </script>
+
 h1 {
   font-size: 2.5rem;
   margin-bottom: 30px;
