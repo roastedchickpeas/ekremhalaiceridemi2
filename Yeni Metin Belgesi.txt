@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ekrem Hâlâ İçeride Mi?</title>
+  <style>
+    body {
+      background: #111;
+      color: #eee;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+      padding: 1rem;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #ff4757;
+      text-shadow: 0 0 10px #ff4757;
+    }
+    #answer {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      min-height: 3rem;
+      color: #2ed573;
+      text-shadow: 0 0 8px #2ed573;
+    }
+    #source {
+      font-size: 0.9rem;
+      color: #888;
+      margin-top: auto;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+    button {
+      background: #ff6b81;
+      border: none;
+      padding: 0.8rem 1.6rem;
+      border-radius: 30px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 10px #ff6b81aa;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #ff4757;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ekrem Hâlâ İçeride Mi?</h1>
+  <div id="answer">...</div>
+  <button onclick="newAnswer()">Ekrem Nerede Şu An?</button>
+  <div id="source">Son güncelleme: <span id="date"></span> — Kaynak: Kadıköy’deki bir dayı</div>
+
+  <script>
+    const answers = [
+      "Evet, sabah havalandırmaya çıktı ama geri döndü.",
+      "Hayır, İBB mutfağında menemen yapıyor.",
+      "Evet, kantinden dürüm aldı.",
+      "Yok, çıktı ama metroya bindi, kart basmadı.",
+      "Hâlâ içeride, ama içeride Wi-Fi var çok şükür.",
+      "Hayır, Saraçhane’de gizlice bilet kontrol ediyor.",
+      "Evet, koğuşta tavla oynamaya başladı.",
+      "Yok be, dışarıda ve hâlâ metro açıyor.",
+      "Evet, ama içerisi dışarısından iyiymiş diyor.",
+      "Hayır, İPA’ya geçti, içeriden analiz yapıyor."
+    ];
+
+    function newAnswer() {
+      const idx = Math.floor(Math.random() * answers.length);
+      document.getElementById('answer').textContent = answers[idx];
+      updateDate();
+    }
+
+    function updateDate() {
+      const now = new Date();
+      const formatted = now.toLocaleString('tr-TR', {
+        day: '2-digit', month: '2-digit', year: 'numeric',
+        hour: '2-digit', minute: '2-digit'
+      });
+      document.getElementById('date').textContent = formatted;
+    }
+
+    // İlk yüklemede cevap göster
+    newAnswer();
+  </script>
+</body>
+</html>
