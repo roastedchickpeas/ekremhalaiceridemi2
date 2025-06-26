@@ -1,0 +1,19 @@
+{
+  "kisiler": [
+    {
+      "isim": "Selahattin D.",
+      "foto": "assets/selahattin.jpg",
+      "tarih": "2016-11-04"
+    },
+    {
+      "isim": "Osman K.",
+      "foto": "assets/osman.jpg",
+      "tarih": "2017-11-01"
+    },
+    {
+      "isim": "Ahmet B.",
+      "foto": "assets/ahmet.jpg",
+      "tarih": "2023-08-20"
+    }
+  ]
+}
