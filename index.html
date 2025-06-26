@@ -1,90 +1,145 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<link rel="icon" href="favicon.ico" type="image/x-icon" />
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ekrem Hâlâ İçeride Mi?</title>
-<style>
-  body {
-    background: #111;
-    color: #eee;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-    padding: 40px 20px;
-  }
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-  }
-  #cevap {
-    font-size: 1.8rem;
-    font-style: italic;
-    max-width: 600px;
-    margin: 0 auto 50px;
-    min-height: 80px;
-    opacity: 1;
-    transition: opacity 1s ease-in-out;
-  }
-</style>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ekrem Hâlâ İçeride Mi?</title>
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    body {
+      background: #111;
+      color: #eee;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+    #cevap {
+      font-size: 1.8rem;
+      font-style: italic;
+      max-width: 600px;
+      margin: 0 auto 50px;
+      min-height: 80px;
+      opacity: 1;
+      transition: opacity 1s ease-in-out;
+    }
+    /* PANO */
+    .pano-container {
+      overflow: hidden;
+      width: 100%;
+      margin-top: 50px;
+      border-top: 1px solid #444;
+      padding-top: 20px;
+    }
+    .pano-icerik {
+      display: flex;
+      gap: 40px;
+      animation: kaydir 60s linear infinite;
+    }
+    .kisi {
+      text-align: center;
+      color: #ccc;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+    .kisi img {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      object-fit: cover;
+      border: 2px solid #666;
+      margin-bottom: 5px;
+    }
+    .kisi span {
+      font-size: 0.75rem;
+      color: #aaa;
+    }
+    @keyframes kaydir {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+  </style>
 </head>
 <body>
 
-<h1>Ekrem Hâlâ İçeride Mi?</h1>
-<div id="cevap">Yükleniyor...</div>
+  <h1>Ekrem Hâlâ İçeride Mi?</h1>
+  <div id="cevap">Yükleniyor...</div>
 
-<script>
-  const cevaplar = [
-    "İçeride ama sabah sporu yaptı.",
-    "Gardiyanla tavla atıyor.",
-    "Koğuşun sözcüsü oldu.",
-    "Mahkemeye gitti, ama döner gibi...",
-    "Dışarı çıktı ama tekrar içeri girdi (alıştı galiba)",
-    "Selahattin’le diziye başladı: 'İçerdekiler'",
-    "İçerde ama çakmak getiren herkesle kanka.",
-    "Dışarı çıksa da aklı içeride.",
-    "Metrobüsle kaçmaya çalıştı, geri aldılar.",
-    "İçerde ama 'bugün çıkacam' diyip her gün kandırılıyor.",
-    "Koğuşta çay demliyor, muhalefetle kavga ediyor hâlâ.",
-    "İçeride ama hâlâ sosyal medyada gündem oluyor.",
-    "Gardiyanlarla beraber ‘iktidar’ oyunları kuruyor.",
-    "Meclis değil koğuş, onun yeni çalışma alanı.",
-    "İçeride ama sesi dışarı kadar güçlü.",
-    "Siyasetten çok cezaevi gündemiyle ilgileniyor.",
-    "Koğuşta bile muhalefetin yıldızı olmaya devam ediyor.",
-    "Her gün içeride yeni bir entrika çeviriyor.",
-    "Mahkeme salonunu Twitter’a çevirmiş, içerideyken bile etkin.",
-    "İçeride ama etkisi dışarıdakinden kat kat fazla."
-  ];
+  <div class="pano-container">
+    <div class="pano-icerik"></div>
+  </div>
 
-  const cevapDiv = document.getElementById('cevap');
-  let currentIndex = -1;
+  <script>
+    const cevaplar = [
+      "İçeride ama sabah sporu yaptı.",
+      "Gardiyanla tavla atıyor.",
+      "Koğuşun sözcüsü oldu.",
+      "Mahkemeye gitti, ama döner gibi...",
+      "Dışarı çıktı ama tekrar içeri girdi (alıştı galiba)",
+      "Selahattin’le diziye başladı: 'İçerdekiler'",
+      "İçerde ama çakmak getiren herkesle kanka.",
+      "Dışarı çıksa da aklı içeride.",
+      "Metrobüsle kaçmaya çalıştı, geri aldılar.",
+      "İçerde ama 'bugün çıkacam' diyip her gün kandırılıyor.",
+      "Koğuşta çay demliyor, muhalefetle kavga ediyor hâlâ.",
+      "İçeride ama hâlâ sosyal medyada gündem oluyor.",
+      "Gardiyanlarla beraber ‘iktidar’ oyunları kuruyor.",
+      "Meclis değil koğuş, onun yeni çalışma alanı.",
+      "İçeride ama sesi dışarı kadar güçlü.",
+      "Siyasetten çok cezaevi gündemiyle ilgileniyor.",
+      "Koğuşta bile muhalefetin yıldızı olmaya devam ediyor.",
+      "Her gün içeride yeni bir entrika çeviriyor.",
+      "Mahkeme salonunu Twitter’a çevirmiş, içerideyken bile etkin.",
+      "İçeride ama etkisi dışarıdakinden kat kat fazla."
+    ];
 
-  function showNextCevap() {
-    // Fade out
-    cevapDiv.style.opacity = 0;
+    const cevapDiv = document.getElementById('cevap');
+    let currentIndex = -1;
 
-    setTimeout(() => {
-      // Yeni cevap seç (farklı olsun)
-      let nextIndex;
-      do {
-        nextIndex = Math.floor(Math.random() * cevaplar.length);
-      } while (nextIndex === currentIndex);
+    function showNextCevap() {
+      cevapDiv.style.opacity = 0;
+      setTimeout(() => {
+        let nextIndex;
+        do {
+          nextIndex = Math.floor(Math.random() * cevaplar.length);
+        } while (nextIndex === currentIndex);
 
-      currentIndex = nextIndex;
-      cevapDiv.textContent = cevaplar[currentIndex];
+        currentIndex = nextIndex;
+        cevapDiv.textContent = cevaplar[currentIndex];
+        cevapDiv.style.opacity = 1;
+      }, 1000);
+    }
 
-      // Fade in
-      cevapDiv.style.opacity = 1;
-    }, 1000); // 1 saniye fade out süresi
-  }
+    showNextCevap();
+    setInterval(showNextCevap, 15000);
 
-  // İlk yüklemede göster
-  showNextCevap();
+    // ICERIDEKILER JSON
+    async function iceridekileriGetir() {
+      const res = await fetch("iceridekiler.json");
+      const data = await res.json();
+      const pano = document.querySelector(".pano-icerik");
 
-  // Her 15 saniyede bir cevabı değiştir
-  setInterval(showNextCevap, 15000);
-</script>
+      data.kisiler.forEach(kisi => {
+        const tarih = new Date(kisi.tarih);
+        const bugun = new Date();
+        const farkMs = bugun - tarih;
+        const gunFarki = Math.floor(farkMs / (1000 * 60 * 60 * 24));
 
+        const div = document.createElement("div");
+        div.className = "kisi";
+        div.innerHTML = `
+          <img src="${kisi.foto}" alt="${kisi.isim}" />
+          <p>${kisi.isim}<br><span>${gunFarki} gündür içeride</span></p>
+        `;
+        pano.appendChild(div);
+      });
+    }
+
+    iceridekileriGetir();
+  </script>
 </body>
 </html>
