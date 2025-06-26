@@ -3,95 +3,109 @@
 <head>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ekrem Hâlâ İçeride Mi?</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <style>
     body {
-      background: #111;
+      font-family: Arial, sans-serif;
+      background-color: #111;
       color: #eee;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
       text-align: center;
-      padding: 1rem;
+      padding: 30px;
     }
+
     h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      color: #ff4757;
-      text-shadow: 0 0 10px #ff4757;
+      font-size: 2.5em;
+      margin-bottom: 20px;
     }
-    #answer {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      min-height: 3rem;
-      color: #2ed573;
-      text-shadow: 0 0 8px #2ed573;
-    }
-    #source {
-      font-size: 0.9rem;
-      color: #888;
-      margin-top: auto;
-      margin-bottom: 1rem;
+
+    #cevap {
+      font-size: 1.5em;
+      margin: 20px 0;
       font-style: italic;
     }
+
     button {
-      background: #ff6b81;
-      border: none;
-      padding: 0.8rem 1.6rem;
-      border-radius: 30px;
+      background-color: #d42f2f;
       color: white;
-      font-weight: bold;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border-radius: 8px;
       cursor: pointer;
-      box-shadow: 0 4px 10px #ff6b81aa;
-      transition: background 0.3s ease;
+      transition: background-color 0.3s ease;
     }
+
     button:hover {
-      background: #ff4757;
+      background-color: #ff4e4e;
+    }
+
+    #iceridekiler {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .kisi {
+      text-align: center;
+      width: 80px;
+    }
+
+    .kisi img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid #fff;
+    }
+
+    .kisi p {
+      margin-top: 5px;
+      font-size: 0.9em;
     }
   </style>
 </head>
 <body>
   <h1>Ekrem Hâlâ İçeride Mi?</h1>
-  <div id="answer">...</div>
-  <button onclick="newAnswer()">Ekrem Nerede Şu An?</button>
-  <div id="source">Son güncelleme: <span id="date"></span> — Kaynak: Kadıköy’deki bir dayı</div>
+  <button onclick="cevapVer()">Sorgula</button>
+  <div id="cevap">👇</div>
+
+  <div id="iceridekiler">
+    <div class="kisi">
+      <img src="assets/selahattin.jpg" alt="Selahattin Demirtaş" />
+      <p>Selahattin D.</p>
+    </div>
+    <div class="kisi">
+      <img src="assets/osman.jpg" alt="Osman Kavala" />
+      <p>Osman K.</p>
+    </div>
+    <div class="kisi">
+      <img src="assets/erkek1.jpg" alt="Sürpriz Mahkum" />
+      <p>Sürpriz X</p>
+    </div>
+  </div>
 
   <script>
-    const answers = [
-      "Evet, sabah havalandırmaya çıktı ama geri döndü.",
-      "Hayır, İBB mutfağında menemen yapıyor.",
-      "Evet, kantinden dürüm aldı.",
-      "Yok, çıktı ama metroya bindi, kart basmadı.",
-      "Hâlâ içeride, ama içeride Wi-Fi var çok şükür.",
-      "Hayır, Saraçhane’de gizlice bilet kontrol ediyor.",
-      "Evet, koğuşta tavla oynamaya başladı.",
-      "Yok be, dışarıda ve hâlâ metro açıyor.",
-      "Evet, ama içerisi dışarısından iyiymiş diyor.",
-      "Hayır, İPA’ya geçti, içeriden analiz yapıyor."
+    const cevaplar = [
+      "İçeride ama sabah sporu yaptı.",
+      "Gardiyanla tavla atıyor.",
+      "Koğuşun sözcüsü oldu.",
+      "Mahkemeye gitti, ama döner gibi...",
+      "Dışarı çıktı ama tekrar içeri girdi (alıştı galiba)",
+      "Selahattin’le diziye başladı: 'İçerdekiler'",
+      "İçerde ama çakmak getiren herkesle kanka.",
+      "Dışarı çıksa da aklı içeride.",
+      "Metrobüsle kaçmaya çalıştı, geri aldılar.",
+      "İçerde ama 'bugün çıkacam' diyip her gün kandırılıyor."
     ];
 
-    function newAnswer() {
-      const idx = Math.floor(Math.random() * answers.length);
-      document.getElementById('answer').textContent = answers[idx];
-      updateDate();
+    function cevapVer() {
+      const random = cevaplar[Math.floor(Math.random() * cevaplar.length)];
+      document.getElementById("cevap").innerText = random;
     }
-
-    function updateDate() {
-      const now = new Date();
-      const formatted = now.toLocaleString('tr-TR', {
-        day: '2-digit', month: '2-digit', year: 'numeric',
-        hour: '2-digit', minute: '2-digit'
-      });
-      document.getElementById('date').textContent = formatted;
-    }
-
-    // İlk yüklemede cevap göster
-    newAnswer();
   </script>
 </body>
 </html>
