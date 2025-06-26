@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ekrem Hâlâ İçeride Mi?</title>
+<style>
+  body {
+    background: #111;
+    color: #eee;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+  #cevap {
+    font-size: 1.8rem;
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto 50px;
+    min-height: 80px;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+</style>
+</head>
+<body>
+
+<h1>Ekrem Hâlâ İçeride Mi?</h1>
+<div id="cevap">Yükleniyor...</div>
+
+<script>
+  const cevaplar = [
+    "İçeride ama sabah sporu yaptı.",
+    "Gardiyanla tavla atıyor.",
+    "Koğuşun sözcüsü oldu.",
+    "Mahkemeye gitti, ama döner gibi...",
+    "Dışarı çıktı ama tekrar içeri girdi (alıştı galiba)",
+    "Selahattin’le diziye başladı: 'İçerdekiler'",
+    "İçerde ama çakmak getiren herkesle kanka.",
+    "Dışarı çıksa da aklı içeride.",
+    "Metrobüsle kaçmaya çalıştı, geri aldılar.",
+    "İçerde ama 'bugün çıkacam' diyip her gün kandırılıyor.",
+    "Koğuşta çay demliyor, muhalefetle kavga ediyor hâlâ.",
+    "İçeride ama hâlâ sosyal medyada gündem oluyor.",
+    "Gardiyanlarla beraber ‘iktidar’ oyunları kuruyor.",
+    "Meclis değil koğuş, onun yeni çalışma alanı.",
+    "İçeride ama sesi dışarı kadar güçlü.",
+    "Siyasetten çok cezaevi gündemiyle ilgileniyor.",
+    "Koğuşta bile muhalefetin yıldızı olmaya devam ediyor.",
+    "Her gün içeride yeni bir entrika çeviriyor.",
+    "Mahkeme salonunu Twitter’a çevirmiş, içerideyken bile etkin.",
+    "İçeride ama etkisi dışarıdakinden kat kat fazla."
+  ];
+
+  const cevapDiv = document.getElementById('cevap');
+  let currentIndex = -1;
+
+  function showNextCevap() {
+    // Fade out
+    cevapDiv.style.opacity = 0;
+
+    setTimeout(() => {
+      // Yeni cevap seç (farklı olsun)
+      let nextIndex;
+      do {
+        nextIndex = Math.floor(Math.random() * cevaplar.length);
+      } while (nextIndex === currentIndex);
+
+      currentIndex = nextIndex;
+      cevapDiv.textContent = cevaplar[currentIndex];
+
+      // Fade in
+      cevapDiv.style.opacity = 1;
+    }, 1000); // 1 saniye fade out süresi
+  }
+
+  // İlk yüklemede göster
+  showNextCevap();
+
+  // Her 15 saniyede bir cevabı değiştir
+  setInterval(showNextCevap, 15000);
+</script>
+
+</body>
+</html>
